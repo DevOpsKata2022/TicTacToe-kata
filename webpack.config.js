@@ -8,7 +8,9 @@ const webpackConfig = () => ({
       {
         test: /\.ts?$/,
         use: "ts-loader",
-        exclude: /node_modules/,
+        exclude: [ 
+          /node_modules/,
+        ],
       },
     ],
   },
@@ -18,7 +20,14 @@ const webpackConfig = () => ({
   output: {
     filename: "script.js",
     path: path.resolve(__dirname, "public","static","bundle"),
-  }
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9000,
+  },
   });
 
   module.exports = webpackConfig;

@@ -1,22 +1,25 @@
-import { Given, When, Then } from '@wdio/cucumber-framework';
+import { Given, When, Then,  } from '@wdio/cucumber-framework';
 
-import LoginPage from '../pageobjects/login.page';
-import SecurePage from '../pageobjects/secure.page';
+import TicTacToePage from '../pageobjects/ticTacToe.page';
 
 const pages = {
-    login: LoginPage
+    TicTacToe: TicTacToePage
 }
+
 
 Given(/^I am on the (\w+) page$/, async (page) => {
     await pages[page].open()
 });
 
-When(/^I login with (\w+) and (.+)$/, async (username, password) => {
-    await LoginPage.login(username, password)
+Then(/^I should see TicTacToe empty grid$/, async () => {
+    return "pending"
 });
 
-Then(/^I should see a flash message saying (.*)$/, async (message) => {
-    await expect(SecurePage.flashAlert).toBeExisting();
-    await expect(SecurePage.flashAlert).toHaveTextContaining(message);
-});
+When(/^I tap on square (\d+)$/,async (squareID: number) => {
+    console.log(squareID)
+    return "pending"
+})
 
+Then(/^I got a "(\w+)" in square (\d+)$/, async (iconeType: string, squareID: number) => {
+    return "pending"
+});
