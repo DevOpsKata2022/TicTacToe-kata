@@ -10,7 +10,10 @@ This enable the use of modules in the typescript code. All imports used in the i
 
 # Development guilde
 
-`npm run start` This commande launch the application and run a dev server at localhost:9000
+`npm run build` This commande build the solution.
+
+`npm run start` This commande launch the application and run a dev server at localhost:9000.
+!! To be fix it does not build a new bundle.
 
 `npm run test` This commande run unit test
 
