@@ -14,8 +14,22 @@ const htmlGrid = `
 export class TicTacToeGrig {
 
     parentElement? : HTMLElement
+    playerID: number = 0
+    playerMarks = ['O', 'X']
+
+    generateEventHandler(cell: Element){
+        return () => {
+            if(cell.textContent == ''){
+                cell.innerHTML = this.playerMarks[this.playerID]
+                this.playerID = (this.playerID + 1) % 2
+            }
+        }
+    }
     initialise(parentElement: HTMLElement){
         this.parentElement = parentElement
         this.parentElement.innerHTML = htmlGrid
+        this.parentElement
+            .querySelectorAll('.cell')
+            .forEach(cell => cell.addEventListener('click', this.generateEventHandler(cell)));
     }
 }
