@@ -9,23 +9,19 @@ class TicTacToePage extends Page {
     /**
      * define selectors using getter methods
      */
-    public get inputUsername () {
-        return $('#username');
-    }
-
-    public get inputPassword () {
-        return $('#password');
-    }
-
-    public get btnSubmit () {
-        return $('button[type="submit"]');
-    }
 
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    
+    getCellId(id: string){
+        return $(`#ttt-cell-${id}`)
+    }
+    getGridContain(){
+         return $('.tictactoe--container')
+     }
+
+
     /**
      * overwrite specific options to adapt it to page object
      */

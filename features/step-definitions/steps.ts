@@ -12,14 +12,15 @@ Given(/^I am on the (\w+) page$/, async (page) => {
 });
 
 Then(/^I should see TicTacToe empty grid$/, async () => {
-    return "pending"
+    await expect(TicTacToePage.getGridContain()).not.toHaveTextContaining('O')
+    await expect(TicTacToePage.getGridContain()).not.toHaveTextContaining('X')
 });
 
-When(/^I tap on square (\d+)$/,async (squareID: number) => {
-    console.log(squareID)
-    return "pending"
+When(/^I tap on square (\d+)$/,async (squareID: string) => {
+    TicTacToePage.getCellId(squareID).click()
 })
 
-Then(/^I got a "(\w+)" in square (\d+)$/, async (iconeType: string, squareID: number) => {
-    return "pending"
+Then(/^I got a "(\w+)" in square (\d+)$/, async (iconeType: string, squareID: string) => {
+    const letter = iconeType == 'cirle' ? 'O' : 'X'
+    await expect(TicTacToePage.getCellId(squareID)).toHaveTextContaining(letter)
 });
